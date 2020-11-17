@@ -45,7 +45,7 @@ function new_game(){
     
 }
 
-function update_dealer(state){
+function update_dealer(showAnimation = true){
     var points = game.get_cards_value(game.dealer_cards);
     console.log(points);
     var mostraCarta = "";
@@ -79,7 +79,7 @@ function update_dealer(state){
      //atualiza a string no elemento html associado ao dealer
      jQuery("#dealer").html(mostraCarta);
      var hiddenCard = jQuery('#dealer-card' + (game.dealer_cards.length - 1))
-     if(hiddenCard.length){
+     if(hiddenCard.length && showAnimation){
         hiddenCard.css('visibility', 'hidden');
         var positionHidden = hiddenCard.offset();
         var positionBaralho = jQuery('#baralho').offset();
@@ -143,17 +143,29 @@ function player_new_card(){
     update_player();
 }
 
-function dealer_finish(){
+function timer(ms){
+    return new Promise(function promise(res){
+        setTimeout(() => {
+            res();
+        },ms)
+    })
+}
+
+
+async function dealer_finish(){
     
     game.setDealerTurn(true);
-    update_dealer();
+    update_dealer(false);
+    // const timer = ms => new Promise(res => setTimeout(res, ms))
     while(game.get_game_state().gameEnded === false){
-        dealer_new_card();
+        await timer(2000);
+        dealer_new_card(); 
     }
     
 }
 
 //INTERFACE
+
 
 function modalAction(){
     new_game()
