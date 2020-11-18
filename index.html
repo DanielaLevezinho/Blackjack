@@ -23,13 +23,23 @@
     </header>
 
     <section id="game">
-      <h1>Dealer</h1>
-      <p id="dealer"></p>
-      <h1>Player</h1>
-      <div id="player"></div>
-      <div id="baralho" class="d-none d-lg-block">
-        
+      <div class="containerCounter">
+        <h1>Dealer</h1>
+        <div id="contadorDealer"></div>
       </div>
+      
+      <div id="dealer"></div>
+
+      <div class="containerCounter">
+        <h1>Player</h1>
+        <div id="contadorPlayer"></div>
+      </div>
+      
+      <div id="player">
+      </div>
+      <div id="baralho" class="d-none d-lg-block"></div>
+      
+      
       <div class="butoes">
         <button id="card" type="button" onclick="player_new_card()">Card</button>
         <button id="stand" type="button" onclick="dealer_finish()">Stand</button>
@@ -39,11 +49,10 @@
       </div>
     </section>
 
-
     <div id="popup" class="modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header modalpop">
             <h5 class="modal-title">BlackJack</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -57,9 +66,57 @@
           </div>
         </div>
       </div>
-    </div> 
-    
-    
+    </div>
+
+<!-- Button trigger modal -->
+<button type="button" class="butaoRegra btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Blackjack Rules
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Rules</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header">
+          Blackjack is a casino banked game, meaning that players compete against the house rather than each other.
+          The objective is to get a hand total of closer to 21 than the dealer without going over 21 (busting).
+          At the start of a Blackjack game, the player receives one card and the dealer receives two cards.
+          The players cards are dealt face up, while the dealer has one face down (called the hole card) and one face up.
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5>
+          Cards Value
+        </h5>
+      </div>
+      <div class="modal-header modalpop">
+        <div class="modal-header">
+          When playing Blackjack the numeral cards 2 to 10 have their face values, Jacks, Queens and Kings are valued at 10, and Aces can have a value of either 1 or 11.
+          The Ace is always valued at 11 unless that would result in the hand going over 21, in which case it is valued as 1.
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5>
+          Button Functionality
+        </h5>
+      </div>
+      <div class="modal-header modalpop">
+        <div class="modal-header">
+          Card - If the player wishes to take another card. A single card is then played face up onto their hand. If the hand total is less than 21 the player can choose to Card again or Stand. If the total is 21 the hand automatically stands. If the total is over 21 the hand is bust.
+          Stand – If the player is happy with the total they’ve been dealt they can stand, taking no further action and passing to the dealer.
+          The player can take this action after choosing to take another card as long as their hand total is not more than 21.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- <section id="sec_debug">
       <h1>Debug</h1>

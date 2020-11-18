@@ -52,6 +52,32 @@ h1{
     transform: translate(0, -84px);
 }
 
+.containerCounter{
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+    margin: auto;
+    margin-top: 35px;
+    
+}
+
+
+#contadorPlayer, #contadorDealer {
+    box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+    background:linear-gradient(to bottom, #b8e356 5%, #a5cc52 100%);
+    background-color:#b8e356;
+    border-radius:6px;
+    border:1px double #83c41a;
+    text-shadow:0px 1px 0px #86ae47;
+    background-color: #83c41a;
+    color: whitesmoke;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .image{
     height: 100%;
     width: 100%;
@@ -62,7 +88,7 @@ h1{
     justify-content: center;
 }
 
-.modal-header, .modal-footer{
+.modalpop, .modal-footer{
     border: none;
 }
 
@@ -85,51 +111,38 @@ h1{
     left: 50%;
     transform: translate(-50%, 0);
     width: 100%;
-    /* box-shadow: 3px 4px 0px 0px #1564ad;
-	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
-	background-color:#79bbff;
-	border-radius:5px;
-	border:1px solid #337bc4;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
-	font-weight:bold;
-	padding:12px 44px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #528ecc; */
 }
 
-#card, #stand, #new_game{
-	box-shadow: 3px 4px 0px 0px #f2fadc;
-	background:linear-gradient(to bottom, #dbe6c4 5%, #9ba892 100%);
-	background-color:#dbe6c4;
-	border-radius:5px;
-	border:1px solid #b2b8ad;
-	display:inline-block;
-	cursor:pointer;
-	color:black;
-	font-family: 'garamond',sans-serif;
-	font-size:17px;
-	font-weight:bold;
-	padding:12px 44px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ced9bf;
+.butaoRegra{
+    display: flex;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+#card, #stand, #new_game, .butaoRegra{
+    box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+    background:linear-gradient(to bottom, #b8e356 5%, #a5cc52 100%);
+    background-color:#b8e356;
+    border-radius:6px;
+    border:1px solid #83c41a;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #86ae47;
 }
 
 #new_game:disabled, #stand:disabled, #card:disabled{
-    background: red;
-
+    background: rgb(77, 110, 98);
 }
 
-/* #card:hover, #stand:hover, #new_game:hover {
-	background:linear-gradient(to bottom, #9ba892 5%, #dbe6c4 100%);
-	background-color:#9ba892;
-} */
-
 #card:active, #stand:active, #new_game:active {
-	position:relative;
-	top:1px;
+    position:relative;
+    top:1px;
 }
 

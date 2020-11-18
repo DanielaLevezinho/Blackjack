@@ -47,7 +47,7 @@ function new_game(){
 
 function update_dealer(showAnimation = true){
     var points = game.get_cards_value(game.dealer_cards);
-    console.log(points);
+    // console.log(points);
     var mostraCarta = "";
     for(var i = 0; i < game.dealer_cards.length; i++){
         if(game.dealer_cards[i].hidden === true && game.dealerTurn === false){
@@ -91,7 +91,7 @@ function update_dealer(showAnimation = true){
 
 
 
-function update_player(state){
+function update_player(){
     var mostraCarta = "";
     for(var i = 0; i < game.player_cards.length; i++){
         mostraCarta += '<div id="player-card' + i + '" class="carta"><img class="image" src="./assets/' + game.player_cards[i].naipe + "-" + game.player_cards[i].valor + '.svg" /></div>'
@@ -129,7 +129,9 @@ function update_player(state){
      
 }
 
+
 function dealer_new_card(hidden = false){
+    teste(game.deck)
     jQuery("#card").attr('disabled', true);
     jQuery("#stand").attr('disabled', true);
     game.dealer_move(hidden);
@@ -137,10 +139,15 @@ function dealer_new_card(hidden = false){
 }
 
 function player_new_card(){
+    teste(game.deck)
     jQuery("#card").attr('disabled', true);
     jQuery("#stand").attr('disabled', true);
     game.player_move();
     update_player();
+}
+
+function teste(variavel){
+    console.log([...variavel]);
 }
 
 function timer(ms){
@@ -182,7 +189,7 @@ function deckShow(){
     var incrementCarta = "";
     
     for(i = game.deck.length;i >= 0 ;i--){
-        console.log(i);
+        // console.log(i);
         incrementCarta += '<div id="card-'+ i + '" class="carta stack" style="transform:translate(' + i/3 + "px," + i/3 + 'px)" ><img class="image" src="./assets/back.png"/></div>';
     }
     jQuery('#baralho').html(incrementCarta);  
@@ -201,5 +208,9 @@ function animateCard(x, y, hiddenCard){
         }
        
     },2000)
+    jQuery("#contadorDealer").html(game.get_cards_value(game.dealer_cards));
+    jQuery("#contadorPlayer").html(game.get_cards_value(game.player_cards));
+    // console.log(game.get_cards_value(game.player_cards))
     
 }
+

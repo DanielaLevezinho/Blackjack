@@ -38,6 +38,7 @@ class BlackJack {
                     deck.push(card);
                 }
             }
+            
             return deck;
         };
 
@@ -45,25 +46,41 @@ class BlackJack {
             
             var new_baralho = [];
             var new_deck = [];
-            for(var i = 1; i <= deck.length; i++){
+            for(var i = 0; i <= deck.length -1; i++){
                 new_baralho.push(i);
                 
             }
 
-            for(var j = 1; j <= new_baralho.length; j++){
+            for(var j = 1; j <= 52; j++){
                var aleatorio = Math.round(Math.random()*(new_baralho.length - 1));
-               new_deck.push(deck[aleatorio]);
-               new_baralho.slice(aleatorio, 1);
+               var index = new_baralho[aleatorio];
+               new_deck.push(deck[index]);
+               new_baralho.splice(aleatorio, 1);
             }
+            // this.checkDeck(new_baralho);
             return new_deck
         };
 
 
         // baralho de cartas baralhado
         this.deck = this.shuffle(this.new_deck());
-        console.log(this.deck)
+        // this.checkDeck(this.deck)
+        // console.log(this.deck)
         //this.deck = this.new_deck();
     }
+
+    // checkDeck = function (deck) {
+    //     console.log(deck)
+    //     var temp = []
+    //     deck.forEach(card => {
+    //         if(temp.includes(card)) {
+    //             console.log('DUPLICATED CARD')
+    //         }
+    //         else {
+    //             temp.push(card)
+    //         }
+    //     })
+    // }
         
     // métodos
     // devolve as cartas do dealer num novo array (splice)
@@ -108,11 +125,12 @@ class BlackJack {
         if(somaCartas + 10 <= MAX_POINTS && hasAce){
             somaCartas += 10;
         }
-        console.log(somaCartas);
+        // console.log(somaCartas);
         
         return somaCartas;
 
     }
+    
 
     dealer_move(hidden = false) {
         
@@ -126,7 +144,7 @@ class BlackJack {
     player_move() {
         var nova_carta = this.deck.pop();
         this.player_cards.push(nova_carta);
-        console.log(this.player_cards)
+        // console.log(this.player_cards)
         return this.get_game_state();
 
     }
